@@ -105,7 +105,7 @@ fun main() {
 
     val gears = getGears(input, lineLength)
 
-    val completeTransmissions = gearsPoints.map { (gearPointLineIndex, gearPointCharIndex) ->
+    val completeTransmissions = gearsPoints.mapNotNull { (gearPointLineIndex, gearPointCharIndex) ->
 
       val searchPoints = (-1..1).toList().flatMap { lineRelativeIndex ->
         (-1..1).toList().map { charRelativeIndex ->
@@ -123,14 +123,14 @@ fun main() {
       }
       if (relevantGears.size < 2) {
         null
-      }else{
-        if(relevantGears.size > 2) {
+      } else {
+        if (relevantGears.size > 2) {
           println("we have too many relevant gears 0o")
         }
         Transmission(GearPoint(gearPointLineIndex, gearPointCharIndex), relevantGears[0], relevantGears[1])
       }
-    }.filterNotNull()
-    
+    }
+
     return completeTransmissions.foldRight(0){ transmission, acc ->
       acc + transmission.firstGear.value * transmission.secondGear.value
     }
