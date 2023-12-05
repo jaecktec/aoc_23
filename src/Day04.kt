@@ -33,15 +33,6 @@ fun main() {
           .map { numbers -> numbers.trim().split(" ").filter { it.isNotBlank() }.map { it.toInt() } }
         Card(index + 1, winning, onCard)
       }
-
-//    fun iterate(card: Card): List<Card>{
-//      val newCards = (card.index..<(card.index + card.winningAmount)).map { cards[it] }
-//      println("${card.index} wins ${newCards.map { it.index }}")
-//      return listOf(card) + newCards + newCards.flatMap { iterate(it) }
-//    }
-//
-//
-//    val iterate = iterate(cards.first())
     
     // probably faster with a map :shrug:
     val iterate = mutableListOf<Int>()
