@@ -1,1 +1,6 @@
+settings:
+  kotlin:
+    languageVersion: 1.9
+  jvm:
+    target: 17
 product: jvm/app
