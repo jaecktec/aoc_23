@@ -40,3 +40,9 @@ fun String.replaceAt(index: Int, replaceWith: Char): String {
   return this.substring(0, index) + replaceWith + this.substring(index + 1)
 }
 
+
+// Function to calculate the greatest common divisor (GCD) using Euclidean algorithm
+fun gcd(a: Long, b: Long): Long = if (b == 0L) a else gcd(b, a % b)
+
+// Function to calculate the least common multiple (LCM) using the GCD
+fun lcm(a: Long, b: Long): Long = if (a == 0L || b == 0L) 0 else (a * b) / gcd(a, b)
