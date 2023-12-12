@@ -28,3 +28,15 @@ fun <T> T?.validate(other: T) {
     System.err.println("expected $other but got $this")
   }
 }
+
+fun printErr(x: String) {
+  System.err.println(x)
+}
+
+fun String.replaceAt(index: Int, replaceWith: Char): String {
+  if (index < 0 || index >= this.length) {
+    throw IndexOutOfBoundsException()
+  }
+  return this.substring(0, index) + replaceWith + this.substring(index + 1)
+}
+
